@@ -8,4 +8,5 @@
 *.xml
 release/
 test/
+test
 TRASH/
