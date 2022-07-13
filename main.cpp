@@ -2,7 +2,6 @@
 
 #include "FileStream.h"
 #include "IniFile.h"
-#include "half.hpp"
 #include "debug.h"
 
 #include "Criware/HcaFile.h"

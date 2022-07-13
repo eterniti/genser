@@ -33,6 +33,7 @@ clean:
 	rm -f ../eternity_common/*.o
 	rm -f ../eternity_common/Misc/*.o
 	rm -f ../eternity_common/DBXV2/*.o
+	rm -f ../eternity_common/SSSS/*.o
 	rm -f ../eternity_common/Criware/*.o
 	rm -f ../eternity_common/Dimps/*.o
 	rm -f ../eternity_common/tinyxml/*.o	
