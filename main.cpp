@@ -55,6 +55,8 @@
 #include "DBXV2/QbtFile.h"
 #include "DBXV2/QedFile.h"
 #include "DBXV2/QsfFile.h"
+#include "DBXV2/IkdFile.h"
+#include "DBXV2/VlcFile.h"
 
 #include "Misc/IggyTexFile.h"
 
@@ -97,6 +99,8 @@ enum class FileType
     TTB,
     TTC,
     CNC,
+	IKD,
+	VLC,
     UNKNOWN,
 };
 
@@ -146,6 +150,8 @@ static const std::vector<FileTypeAssociation> file_associations =
     { ".ttb", FileType::TTB, false },
     { ".ttc", FileType::TTC, false },
     { ".cnc", FileType::CNC, false },
+	{ ".ikd", FileType::IKD, false },
+	{ ".vlc", FileType::VLC, false },
 
     { ".emo.xml", FileType::EMO, true },
     { ".emb.xml", FileType::EMB, true },
@@ -184,6 +190,8 @@ static const std::vector<FileTypeAssociation> file_associations =
     { ".ttb.xml", FileType::TTB, true },
     { ".ttc.xml", FileType::TTC, true },
     { ".cnc.xml", FileType::CNC, true },
+	{ ".ikd.xml", FileType::IKD, true },
+	{ ".vlc.xml", FileType::VLC, true },
 };
 
 FileType get_file_type(const std::string &file_path, bool *is_xml=nullptr)
@@ -421,6 +429,14 @@ int xmlize(const std::string &file_path)
     {
         file = new CncFile();
     }
+	else if (type == FileType::IKD)
+    {
+        file = new IkdFile();
+    }
+	else if (type == FileType::VLC)
+    {
+        file = new VlcFile();
+    }
     else
     {
         DPRINTF("Filetype of \"%s\" not supported.\n", file_path.c_str());
@@ -451,7 +467,8 @@ int xmlize(const std::string &file_path)
             type == FileType::PSC || type == FileType::HCI || type == FileType::SEV ||
             type == FileType::CML || type == FileType::PAL || type == FileType::TNL ||
             type == FileType::IDB || type == FileType::TSD || type == FileType::TTB ||
-            type == FileType::TTC || type == FileType::CNC)
+            type == FileType::TTC || type == FileType::CNC || type == FileType::IKD ||
+			type == FileType::VLC)
         {
             bool load_idb;
             bool load_lobby;
