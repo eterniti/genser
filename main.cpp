@@ -220,6 +220,8 @@ void Xenoverse2Setup(bool idb, bool init_lobby, bool init_common_dialogue)
 
     if (!ini.GetStringValue("General", "game_directory", xv2_path))
         return;
+	
+	ini.GetIntegerValue("General", "global_lang", &global_lang, -1);
 
     if (xv2_path.length() == 0)
         return;

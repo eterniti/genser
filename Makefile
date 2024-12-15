@@ -2,7 +2,8 @@ CC = gcc
 CXX = g++
 
 OUTPUT := genser.exe
-OBJS = main.o debug.o ../eternity_common/Utils.o ../eternity_common/BaseFile.o 
+OBJS = main.o debug.o ../eternity_common/BaseFile.o 
+OBJS += ../eternity_common/UtilsStr.o ../eternity_common/UtilsFS.o ../eternity_common/UtilsXML.o ../eternity_common/UtilsMisc.o ../eternity_common/UtilsCrypto.o ../eternity_common/UtilsZlib.o
 OBJS += ../eternity_common/crypto/sha1.o ../eternity_common/crypto/md5.o ../eternity_common/crypto/rijndael.o
 OBJS += ../eternity_common/Stream.o ../eternity_common/MemoryStream.o ../eternity_common/FixedMemoryStream.o ../eternity_common/FileStream.o ../eternity_common/BitStream.o ../eternity_common/FixedBitStream.o
 OBJS += ../eternity_common/Criware/CrilaylaFixedBitStream.o ../eternity_common/Criware/CpkFile.o ../eternity_common/Criware/UtfFile.o
